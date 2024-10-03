@@ -2,16 +2,24 @@
   "name": "@repo/db",
   "version": "0.0.0",
   "dependencies": {
+    "@faker-js/faker": "^9.0.3",
     "@prisma/client": "^5.20.0"
   },
   "scripts": {
     "db:generate": "prisma generate",
-    "db:push": "prisma db push --skip-generate"
+    "db:push": "prisma db push --skip-generate",
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+
+  },
+  "prisma":{
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+
   },
   "devDependencies": {
-    "prisma": "latest"
+    "prisma": "latest",
+    "ts-node": "^10.9.2"
   },
-  "exports":{
-    ".":"./src/index.ts"
+  "exports": {
+    ".": "./src/index.ts"
   }
 }
