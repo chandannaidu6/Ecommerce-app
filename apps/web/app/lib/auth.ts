@@ -15,16 +15,24 @@ export const authOptions:NextAuthOptions = {
     adapter:PrismaAdapter(db),
 
     callbacks:{
-        async jwt({token,account,profile}){;
+        async jwt({token,account,user}){
+            if(user){
+                token.id = user.id
+            }
             if(account){
                 token.accessToken = account.access_token;
                 token.idToken = account.id_token;
             }
             return token;
         },
-        async session({session,token,user}:any){
-            session.accessToken = token.accessToken;
-            session.user.id = token.id 
+        async session({session,token}:any){
+            if(token){
+                session.accessToken = token.accessToken as string;
+                session.user.id = token.id as string;
+                session.idToken = token.idToken as string;
+
+            }
+  
             return session
         }
 
