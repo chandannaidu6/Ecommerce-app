@@ -6,6 +6,6 @@
     "declarationMap": true,
     "sourceMap": true
   },
-  "include": ["src","components/**/*", "index.ts"],
+  "include": ["src/**/*","components/**/*", "index.ts"],
   "exclude": ["node_modules", "dist"]
 }
