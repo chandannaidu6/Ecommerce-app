@@ -1,4 +1,4 @@
-import React from 'react'
+'use client';
 import  Link  from 'next/link'
 import { useSession,signOut } from 'next-auth/react'
 
@@ -13,9 +13,6 @@ const Layout: React.FC<{children: React.ReactNode}> = ({children}) => {
                         <span className="text-2xl font-bold cursor-pointer">MyStore</span>
                     </Link>
                     <div className='flex items-center'>
-                        <Link href='/products'>
-                        <span className="text-2xl font-bold cursor-pointer">MyStore</span>
-                        </Link>
                         <div className='flex items-center'>
                             <Link href='/products'>
                                 <span className="mr-4 cursor-pointer">Products</span>
