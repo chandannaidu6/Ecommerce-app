@@ -1,7 +1,7 @@
 import './globals.css';
 import { ReactNode } from 'react';
 import AuthProvider from './AuthProvider'; 
-import { Layout } from '@repo/ui';
+import  Layout  from '@repo/ui/Layout';
 
 export const metadata = {
   title: 'MyStore',

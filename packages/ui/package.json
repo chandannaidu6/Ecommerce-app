@@ -10,6 +10,7 @@
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx",
     "./Layout":"./src/Layout.tsx",
+    "./AddToCart":"./src/AddToCartButton.tsx",
     ".":"./dist/index.js"
   },
   "scripts": {
