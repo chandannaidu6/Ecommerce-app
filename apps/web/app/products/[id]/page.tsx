@@ -2,6 +2,7 @@
 import React from "react" 
 import { notFound } from 'next/navigation'
 import { Product } from "../../lib/types"
+import AddToCartButton from "@repo/ui/AddToCart";
 
 async function fetchProduct(id:string):Promise<Product |null>{
     const res = await fetch(`http://localhost:3001/pages/api/products/${id}`,{
@@ -35,6 +36,9 @@ export default async function ProductDetailPage({params}:ProductPageProps){
             </p>
 
         <p>{product.description}</p>    
+        <div className='mt-6'>
+            <AddToCartButton product={product} />
+        </div>
         </div>
 
     )
