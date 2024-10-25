@@ -1,11 +1,9 @@
+'use client'
 import React,{ createContext,useContext,useState,useEffect,ReactNode} from 'react'
-import axios from 'axios'
 import { Product } from '../app/lib/types';
 
-interface CartItem{
-    id : number;
-    productId : number;
-    quantity : number;
+interface CartItem extends Product{
+    quantity: number
 
 }
 
@@ -20,7 +18,7 @@ interface CartContextProps{
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
-export const cartProvider : React.FC<{children: ReactNode}> = ({children}) => {
+export const CartProvider : React.FC<{children: ReactNode}> = ({children}) => {
     const [cartItems,setCartItems] = useState<CartItem[]>([]);
 
     useEffect(() => {
@@ -42,7 +40,7 @@ export const cartProvider : React.FC<{children: ReactNode}> = ({children}) => {
             )
           );
         } else {
-          saveCart([...cartItems, {id:Date.now(),productId:product.id,quantity: 1 }]);
+          saveCart([...cartItems, {...product,quantity:1}]);
         }
 
     }
