@@ -11,7 +11,7 @@ const AddToCartButton:React.FC<AddToCartButtonProps> = ({ product }) => {
     const router  = useRouter()
 
     const handleAddToCart = () => {
-        addToCart(product)
+        addToCart(product,1)
         router.push('/cart')
     }
 

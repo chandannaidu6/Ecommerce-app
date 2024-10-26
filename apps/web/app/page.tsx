@@ -1,5 +1,8 @@
 import Link from 'next/link';
-
+export const metadata = {
+  title: 'MyStore',
+  description: 'Your one-stop shop for all your needs!',
+};
 export default function HomePage() {
   return (
     <div className="text-center mt-12">

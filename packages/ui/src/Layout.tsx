@@ -1,9 +1,16 @@
 'use client';
 import  Link  from 'next/link'
 import { useSession,signOut } from 'next-auth/react'
+import { useCart } from '../../../apps/web/contexts/cartContext';
 
 const Layout: React.FC<{children: React.ReactNode}> = ({children}) => {
     const {data:session} = useSession()
+    const { clearCart } = useCart();
+
+    const handleSignOut = async () => {
+        await clearCart();
+        await signOut();
+    }
 
     return(
         <div className='flex flex-col min-h-screen'>
@@ -29,7 +36,7 @@ const Layout: React.FC<{children: React.ReactNode}> = ({children}) => {
                                     <Link href="/profile">
                                     <span className="mr-4 cursor-pointer">Profile</span>
                                     </Link>
-                                    <button onClick={() => signOut()} className="text-red-300">
+                                    <button onClick={handleSignOut} className="text-red-300">
                                     Sign Out
                                     </button>
                                 
